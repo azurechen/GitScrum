@@ -22,8 +22,22 @@ html, body, #root, .App {
 
 .Board {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
   background-color: #333;
-  padding: 0 8px;
+}
+
+.Board > .name {
+  text-align: left;
+  font-weight: bolder;
+  font-size: 18px;
+  color: #EEE;
+  padding: 14px 24px;
+}
+
+.Board > .content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding: 0 8px 16px;
 }

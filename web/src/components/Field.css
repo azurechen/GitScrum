@@ -1,11 +1,27 @@
 .Field {
   display: flex;
   flex: 1;
-  padding: 16px 8px;
+  padding: 0 6px;
 }
 
 .Field > div {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: #E1E1E1;
-  border-radius: 8px;
+  border-radius: 4px;
+}
+
+.Field .name {
+  padding: 8px 16px;
+  text-align: left;
+  font-weight: bolder;
+  color: #4D4D4D;
+}
+
+.Field .content {
+  flex: 1;
+  padding: 8px;
+  padding-top: 0;
+  overflow: scroll;
 }

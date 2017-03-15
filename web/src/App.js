@@ -4,12 +4,15 @@ import './App.css';
 
 import Field from './components/Field';
 
+let BOARD_NAME = "No money to buy JIRA";
+let LABELS = ["Todo", "In Progress", "Pull Request", "Done"];
+
 class App extends Component {
 
   getFields() {
     var fields = [];
     for (var i = 0; i < 4; i++) {
-      fields.push(<Field key={i} />);
+      fields.push(<Field key={i} name={LABELS[i]} />);
     }
     return fields;
   }
@@ -20,7 +23,10 @@ class App extends Component {
         <div className="App-header">
         </div>
         <div className="Board">
-          {this.getFields()}
+          <div className="name">{BOARD_NAME}</div>
+          <div className="content">
+            {this.getFields()}
+          </div>
         </div>
       </div>
     );

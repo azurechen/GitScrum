@@ -1,0 +1,8 @@
+.Ticket {
+  flex: 1;
+  height: 96px;
+  background-color: #FFF;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
