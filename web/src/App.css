@@ -19,25 +19,3 @@ html, body, #root, .App {
   padding: 4px;
   color: white;
 }
-
-.Board {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: #333;
-}
-
-.Board > .name {
-  text-align: left;
-  font-weight: bolder;
-  font-size: 18px;
-  color: #EEE;
-  padding: 14px 24px;
-}
-
-.Board > .content {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  padding: 0 8px 16px;
-}

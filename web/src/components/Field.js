@@ -13,7 +13,7 @@ class Field extends Component {
   getTickets() {
     var tickets = [];
     for (var i = 0; i < 4; i++) {
-      tickets.push(<Ticket key={i} />);
+      tickets.push(<Ticket key={i} text="test" />);
     }
     return tickets;
   }
