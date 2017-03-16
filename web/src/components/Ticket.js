@@ -27,14 +27,19 @@ class Ticket extends Component {
   }
 
   render() {
-    const { connectDragSource, isDragging } = this.props;
+    const { connectDragSource, isDragging, isPlaceholder } = this.props;
     return connectDragSource(
       <div className="Ticket"
-        style={{ opacity: isDragging ? 0.5 : 1 }}>
-
+        style={{
+          opacity: isDragging || isPlaceholder ? 0.5 : 1
+        }}>
       </div>
     );
   }
 }
+
+Ticket.defaultProps = {
+  isPlaceholder: false
+};
 
 export default DragSource(Constants.TYPE_TICKET, ticketSource, collect)(Ticket);
