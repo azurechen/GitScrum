@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import { DropTarget } from 'react-dnd';
 import './Field.css';
 
+import Constants from '../Constants.js';
 import Ticket from './Ticket';
+
+const fieldTarget = {
+  drop(props) {
+    moveTicket();
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
 
 class Field extends Component {
 
@@ -19,7 +34,8 @@ class Field extends Component {
   }
 
   render() {
-    return (
+    const { connectDropTarget, isOver } = this.props;
+    return connectDropTarget(
       <div className="Field">
         <div>
           <div className="name">{this.props.name}</div>
@@ -32,4 +48,4 @@ class Field extends Component {
   }
 }
 
-export default Field;
+export default DropTarget(Constants.TYPE_TICKET, fieldTarget, collect)(Field);

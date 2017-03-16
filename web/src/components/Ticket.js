@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 import './Ticket.css';
 
-const cardSource = {
+import Constants from '../Constants.js';
+
+const ticketSource = {
   beginDrag(props) {
     return {
       text: props.text
@@ -25,7 +27,7 @@ class Ticket extends Component {
   }
 
   render() {
-    const { isDragging, connectDragSource, text } = this.props;
+    const { connectDragSource, isDragging } = this.props;
     return connectDragSource(
       <div className="Ticket"
         style={{ opacity: isDragging ? 0.5 : 1 }}>
@@ -35,4 +37,4 @@ class Ticket extends Component {
   }
 }
 
-export default DragSource("Ticket", cardSource, collect)(Ticket);
+export default DragSource(Constants.TYPE_TICKET, ticketSource, collect)(Ticket);

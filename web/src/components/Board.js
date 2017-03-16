@@ -5,8 +5,8 @@ import './Board.css';
 
 import Field from './Field';
 
-let BOARD_NAME = "No money to buy JIRA";
-let LABELS = ["Todo", "In Progress", "Pull Request", "Done"];
+const BOARD_NAME = "No money to buy JIRA";
+const LABELS = ["Todo", "In Progress", "Pull Request", "Done"];
 
 class Board extends Component {
 
