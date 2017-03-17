@@ -1,3 +1,3 @@
 export default {
-  TYPE_TICKET: 'ticket',
+  TYPE_CARD: 'card',
 }

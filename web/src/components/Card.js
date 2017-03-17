@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
-import './Ticket.css';
+import './Card.css';
 
 import Constants from '../Constants.js';
 
-const ticketSource = {
+const cardSource = {
   beginDrag(props) {
     return {
       text: props.text
@@ -19,7 +19,7 @@ function collect(connect, monitor) {
   };
 }
 
-class Ticket extends Component {
+class Card extends Component {
 
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ class Ticket extends Component {
   render() {
     const { connectDragSource, isDragging, isPlaceholder } = this.props;
     return connectDragSource(
-      <div className="Ticket"
+      <div className="Card"
         style={{
           opacity: isDragging || isPlaceholder ? 0.5 : 1
         }}>
@@ -38,8 +38,8 @@ class Ticket extends Component {
   }
 }
 
-Ticket.defaultProps = {
+Card.defaultProps = {
   isPlaceholder: false
 };
 
-export default DragSource(Constants.TYPE_TICKET, ticketSource, collect)(Ticket);
+export default DragSource(Constants.TYPE_CARD, cardSource, collect)(Card);

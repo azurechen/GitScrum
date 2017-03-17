@@ -3,7 +3,7 @@ import { DropTarget } from 'react-dnd';
 import './Field.css';
 
 import Constants from '../Constants.js';
-import Ticket from './Ticket';
+import Card from './Card';
 
 const fieldTarget = {
   hover(props, monitor, component) {
@@ -47,18 +47,18 @@ class Field extends Component {
     }
   }
 
-  getTickets(isOver) {
-    var tickets = [];
+  getCards(isOver) {
+    var cards = [];
     for (var i = 0; i < 4; i++) {
-      tickets.push(<Ticket key={i} text="test" />);
+      cards.push(<Card key={i} text="{ticket.summary}" />);
     }
     if (isOver) {
       // add placeholder
-      tickets.splice(
+      cards.splice(
         this.state.placeholderIndex, 0,
-        <Ticket key="placeholder" isPlaceholder={true} />);
+        <Card key="placeholder" isPlaceholder={true} />);
     }
-    return tickets;
+    return cards;
   }
 
   render() {
@@ -69,7 +69,7 @@ class Field extends Component {
           <div className="name">{this.props.name}</div>
           <div className="content"
             ref={(element) => { this.contentRef = element; }}>
-            {this.getTickets(isOver)}
+            {this.getCards(isOver)}
           </div>
         </div>
       </div>
@@ -77,4 +77,4 @@ class Field extends Component {
   }
 }
 
-export default DropTarget(Constants.TYPE_TICKET, fieldTarget, collect)(Field);
+export default DropTarget(Constants.TYPE_CARD, fieldTarget, collect)(Field);
