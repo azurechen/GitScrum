@@ -7,7 +7,7 @@ import Constants from '../Constants.js';
 const cardSource = {
   beginDrag(props) {
     return {
-      text: props.text
+      ticket: props.ticket
     };
   }
 };

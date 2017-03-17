@@ -3,6 +3,7 @@ import { DropTarget } from 'react-dnd';
 import './Field.css';
 
 import Constants from '../Constants.js';
+import Mocks from '../Mocks.js';
 import Card from './Card';
 
 const fieldTarget = {
@@ -28,6 +29,8 @@ const fieldTarget = {
     });
   },
   drop(props, monitor, component) {
+    let ticket = monitor.getItem().ticket;
+    props.moveCard(ticket, component.props.type);
   }
 };
 
@@ -49,11 +52,14 @@ class Field extends Component {
 
   getCards(isOver) {
     var cards = [];
-    for (var i = 0; i < 4; i++) {
-      cards.push(<Card key={i} text="{ticket.summary}" />);
+    for (var i = 0; i < Mocks.tickets.length; i++) {
+      let ticket = Mocks.tickets[i];
+      if (ticket.type === this.props.type) {
+        cards.push(<Card key={ticket.id} ticket={ticket} />);
+      }
     }
+    // add placeholder
     if (isOver) {
-      // add placeholder
       cards.splice(
         this.state.placeholderIndex, 0,
         <Card key="placeholder" isPlaceholder={true} />);
@@ -68,7 +74,7 @@ class Field extends Component {
         <div>
           <div className="name">{this.props.name}</div>
           <div className="content"
-            ref={(element) => { this.contentRef = element; }}>
+            ref={(ref) => { this.contentRef = ref; }}>
             {this.getCards(isOver)}
           </div>
         </div>
