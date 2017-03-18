@@ -30,7 +30,11 @@ class Card extends Component {
   render() {
     const { connectDragSource, isDragging, isPlaceholder } = this.props;
 
-    if (isDragging || isPlaceholder) {
+    if (isDragging) {
+      return connectDragSource(
+        <div className="Card" style={{ display: "none" }}></div>
+      );
+    } else if (isPlaceholder) {
       return connectDragSource(
         <div className="Card" style={{ opacity: 0.5 }}></div>
       );
