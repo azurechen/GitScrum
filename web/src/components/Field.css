@@ -1,24 +1,6 @@
 .Field {
-  display: flex;
-  flex: 1;
-  padding: 0 6px;
-}
-
-.Field > div {
-  display: flex;
   flex-direction: column;
   flex: 1;
   background-color: #EAEAEA;
-}
-
-.Field .name {
-  padding: 8px 16px;
-  text-align: left;
-  font-weight: bolder;
-  color: #4D4D4D;
-}
-
-.Field .content {
-  flex: 1;
-  overflow: scroll;
+  margin: 0 6px;
 }

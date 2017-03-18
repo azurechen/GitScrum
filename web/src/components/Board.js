@@ -27,12 +27,22 @@ class Board extends Component {
   render() {
     return (
       <div className="Board">
-        <div className="name">{BOARD_NAME}</div>
+        <div className="name">Sprit: {BOARD_NAME}</div>
+        <div className="header">
+          <div>
+            <div>Todo</div>
+            <div>In Progress</div>
+            <div>Pull Request</div>
+            <div>Done</div>
+          </div>
+        </div>
         <div className="content">
-          <Field key={1} type={1} name="Todo" moveCard={this.moveCard} ref={(ref) => this.fieldRefs[1] = ref} />
-          <Field key={2} type={2} name="In Progress" moveCard={this.moveCard} ref={(ref) => this.fieldRefs[2] = ref} />
-          <Field key={3} type={3} name="Pull Request" moveCard={this.moveCard} ref={(ref) => this.fieldRefs[3] = ref} />
-          <Field key={4} type={4} name="Done" moveCard={this.moveCard} ref={(ref) => this.fieldRefs[4] = ref} />
+          <div>
+            <Field key={1} type={1} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[1] = ref} />
+            <Field key={2} type={2} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[2] = ref} />
+            <Field key={3} type={3} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[3] = ref} />
+            <Field key={4} type={4} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[4] = ref} />
+          </div>
         </div>
       </div>
     );

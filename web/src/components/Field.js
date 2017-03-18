@@ -8,11 +8,11 @@ import Card from './Card';
 
 const fieldTarget = {
   hover(props, monitor, component) {
-    let ref = component.contentRef;
+    let ref = component.ref;
 
     // calculate the placeholder index
     let placeholderIndex = 0;
-    let dragOffset = monitor.getClientOffset().y - 96 + ref.scrollTop
+    let dragOffset = monitor.getClientOffset().y - 98 + ref.scrollTop
     let totalOffset = 0;
     for (var i = 0; i < ref.children.length; i++) {
       let height = ref.children[i].offsetHeight;
@@ -70,14 +70,9 @@ class Field extends Component {
   render() {
     const { connectDropTarget, isOver } = this.props;
     return connectDropTarget(
-      <div className="Field">
-        <div>
-          <div className="name">{this.props.name}</div>
-          <div className="content"
-            ref={(ref) => { this.contentRef = ref; }}>
-            {this.getCards(isOver)}
-          </div>
-        </div>
+      <div className="Field"
+        ref={(ref) => { this.ref = ref; }}>
+        {this.getCards(isOver)}
       </div>
     );
   }
