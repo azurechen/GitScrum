@@ -12,7 +12,7 @@ const fieldTarget = {
 
     // calculate the placeholder index
     let placeholderIndex = 0;
-    let dragOffset = monitor.getClientOffset().y - 98 + ref.scrollTop
+    let dragOffset = monitor.getClientOffset().y - 115 + ref.scrollTop
     let totalOffset = 0;
     for (var i = 0; i < ref.children.length; i++) {
       let height = ref.children[i].offsetHeight;
@@ -30,7 +30,7 @@ const fieldTarget = {
   },
   drop(props, monitor, component) {
     let ticket = monitor.getItem().ticket;
-    props.moveCard(ticket, component.props.type);
+    props.moveCard(ticket, component.props.status);
   }
 };
 
@@ -54,7 +54,7 @@ class Field extends Component {
     var cards = [];
     for (var i = 0; i < Mocks.tickets.length; i++) {
       let ticket = Mocks.tickets[i];
-      if (ticket.type === this.props.type) {
+      if (ticket.status === this.props.status) {
         cards.push(<Card key={ticket.id} ticket={ticket} />);
       }
     }

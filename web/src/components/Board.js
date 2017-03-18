@@ -6,6 +6,7 @@ import './Board.css';
 import Field from './Field';
 
 const BOARD_NAME = "2017/03/13~2017/03/19";
+const BOARD_PERIOD = "13/Mar/17 ~ 19/Mar/17";
 
 class Board extends Component {
 
@@ -18,8 +19,8 @@ class Board extends Component {
   }
 
   moveCard(ticket, to) {
-    let from = ticket.type;
-    ticket.type = to;
+    let from = ticket.status;
+    ticket.status = to;
     this.fieldRefs[from].forceUpdate();
     this.fieldRefs[to].forceUpdate();
   }
@@ -27,7 +28,10 @@ class Board extends Component {
   render() {
     return (
       <div className="Board">
-        <div className="name">Sprit: {BOARD_NAME}</div>
+        <div>
+          <div className="name">{BOARD_NAME}</div>
+          <div className="period">{BOARD_PERIOD}</div>
+        </div>
         <div className="header">
           <div>
             <div>Todo</div>
@@ -38,10 +42,10 @@ class Board extends Component {
         </div>
         <div className="content">
           <div>
-            <Field key={1} type={1} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[1] = ref} />
-            <Field key={2} type={2} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[2] = ref} />
-            <Field key={3} type={3} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[3] = ref} />
-            <Field key={4} type={4} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[4] = ref} />
+            <Field key={1} status={1} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[1] = ref} />
+            <Field key={2} status={2} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[2] = ref} />
+            <Field key={3} status={3} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[3] = ref} />
+            <Field key={4} status={4} moveCard={this.moveCard} ref={(ref) => this.fieldRefs[4] = ref} />
           </div>
         </div>
       </div>
