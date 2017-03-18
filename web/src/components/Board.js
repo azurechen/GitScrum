@@ -5,7 +5,7 @@ import './Board.css';
 
 import Field from './Field';
 
-const BOARD_NAME = "No money to buy JIRA";
+const BOARD_NAME = "2017/03/13~2017/03/19";
 
 class Board extends Component {
 

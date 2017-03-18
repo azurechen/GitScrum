@@ -15,7 +15,7 @@ const fieldTarget = {
     let dragOffset = monitor.getClientOffset().y - 96 + ref.scrollTop
     let totalOffset = 0;
     for (var i = 0; i < ref.children.length; i++) {
-      let height = ref.children[i].offsetHeight + 6;
+      let height = ref.children[i].offsetHeight;
       totalOffset += height;
 
       if (dragOffset < totalOffset) {

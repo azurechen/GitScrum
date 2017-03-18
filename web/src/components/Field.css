@@ -8,8 +8,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #E1E1E1;
-  border-radius: 4px;
+  background-color: #EAEAEA;
 }
 
 .Field .name {
@@ -21,7 +20,5 @@
 
 .Field .content {
   flex: 1;
-  padding: 8px;
-  padding-top: 0;
   overflow: scroll;
 }

@@ -8,7 +8,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="nav">
+          <h2>GitScrum</h2>
+          <a className="selected"># Backlog</a>
+          <a># Sprint</a>
+          <a># Chart</a>
         </div>
         <Board />
       </div>
