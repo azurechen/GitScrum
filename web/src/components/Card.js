@@ -41,9 +41,9 @@ class Card extends Component {
     } else {
       var typeColor;
       switch (this.props.ticket.type) {
-        case "story": typeColor = "#3C6"; break;
-        case "task": typeColor = "#36E"; break;
-        case "bug": typeColor = "#E00"; break;
+        case 1: typeColor = "#3C6"; break;
+        case 2: typeColor = "#36E"; break;
+        case 3: typeColor = "#E00"; break;
       }
       var name = this.props.ticket.assignee.toUpperCase();
       var charIndex = 0;
