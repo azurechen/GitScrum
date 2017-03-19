@@ -3,10 +3,11 @@
   flex-direction: row;
   height: 86px;
   background-color: #FFF;
-  border-left: 4px solid #E00;
+  border-left: 6px solid transparent;
   border-bottom: 1px solid #E1E1E1;
-  padding: 8px 12px;
+  padding: 8px 8px 8px 12px;
   overflow: hidden;
+  margin-left: 1px;
 }
 
 .Card > .content {
@@ -34,7 +35,7 @@
   /*width: 60px;*/
 }
 
-.Card > .info > .image {
+.Card > .info > .assignee {
   position: relative;
   width: 36px;
   height: 36px;
@@ -42,7 +43,7 @@
   overflow: hidden;
 }
 
-.Card > .info > .image > div {
+.Card > .info > .assignee > div {
   position: absolute;
   top: 0;
   left: 0;
@@ -55,7 +56,7 @@
   border-radius: 4px;
 }
 
-.Card > .info > .image > img {
+.Card > .info > .assignee > img {
   position: absolute;
   top: 0;
   left: 0;

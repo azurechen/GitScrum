@@ -39,15 +39,30 @@ class Card extends Component {
         <div className="Card" style={{ opacity: 0.5 }}></div>
       );
     } else {
+      var typeColor;
+      switch (this.props.ticket.type) {
+        case "story": typeColor = "#3C6"; break;
+        case "task": typeColor = "#36E"; break;
+        case "bug": typeColor = "#E00"; break;
+      }
+      var name = this.props.ticket.assignee.toUpperCase();
+      var charIndex = 0;
+      for (var i = 0; i < this.props.ticket.assignee.length; i++) {
+        charIndex += name.charCodeAt(i);
+      }
+      var assigneeColor = Constants.COLORS[charIndex % Constants.COLORS.length];
+
       return connectDragSource(
-        <div className="Card">
+        <div className="Card" style={{ borderLeftColor: typeColor }}>
           <div className="content">
             <div className="number">{Mocks.board.prefix}-{this.props.ticket.id}</div>
             <div className="summary">{this.props.ticket.summary}</div>
           </div>
           <div className="info">
-            <div className="image">
-              <div>A</div>
+            <div className="assignee">
+              <div style={{ backgroundColor: assigneeColor }}>
+                {this.props.ticket.assignee.charAt(0).toUpperCase()}
+              </div>
               <img />
             </div>
             <div className="estimate">{this.props.ticket.estimate}</div>
