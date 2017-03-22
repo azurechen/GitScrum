@@ -18,9 +18,10 @@ class Board extends Component {
     this.fieldRefs = [];
   }
 
-  moveCard(ticket, to) {
+  moveCard(ticket, to, order) {
     let from = ticket.status;
     ticket.status = to;
+    ticket.order = order;
     this.fieldRefs[from].forceUpdate();
     this.fieldRefs[to].forceUpdate();
   }

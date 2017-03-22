@@ -24,13 +24,36 @@ const fieldTarget = {
       placeholderIndex = i + 1;
     }
     // update state
-    component.setState({
-      placeholderIndex: placeholderIndex,
-    });
+    if (component.state.placeholderIndex != placeholderIndex) {
+      component.setState({
+        placeholderIndex: placeholderIndex,
+      });
+    }
   },
   drop(props, monitor, component) {
+    // calculate the order
+    let tickets = component.getTickets();
+    let placeholderIndex = component.state.placeholderIndex;
+
+    var prevCardOrder, nextCardOrder, order;
+    if (placeholderIndex > 0) {
+        prevCardOrder = tickets[placeholderIndex - 1].order;
+    }
+    if (placeholderIndex < tickets.length) {
+        nextCardOrder = tickets[placeholderIndex].order;
+    }
+    if (prevCardOrder === undefined && nextCardOrder === undefined) {
+        order = 0;
+    } else if (prevCardOrder === undefined) {
+        order = nextCardOrder - 1;
+    } else if (nextCardOrder === undefined) {
+        order = prevCardOrder + 1;
+    } else {
+        order = (prevCardOrder + nextCardOrder) / 2;
+    }
+    // move card
     let ticket = monitor.getItem().ticket;
-    props.moveCard(ticket, component.props.status);
+    props.moveCard(ticket, component.props.status, order);
   }
 };
 
@@ -48,9 +71,10 @@ class Field extends Component {
     this.state = {
       placeholderIndex: 0,
     }
+    this.getTickets = this.getTickets.bind(this);
   }
 
-  getCards(isOver) {
+  getTickets() {
     // find tickets and sort
     var tickets = [];
     for (var i = 0; i < Mocks.tickets.length; i++) {
@@ -60,6 +84,11 @@ class Field extends Component {
         tickets.sort(function(a, b) { return a.order > b.order; });
       }
     }
+    return tickets;
+  }
+
+  getCards(isOver) {
+    let tickets = this.getTickets();
     // create cards array
     var cards = [];
     for (var i = 0; i < tickets.length; i++) {
