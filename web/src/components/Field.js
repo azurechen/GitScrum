@@ -51,12 +51,20 @@ class Field extends Component {
   }
 
   getCards(isOver) {
-    var cards = [];
+    // find tickets and sort
+    var tickets = [];
     for (var i = 0; i < Mocks.tickets.length; i++) {
       let ticket = Mocks.tickets[i];
       if (ticket.status === this.props.status) {
-        cards.push(<Card key={ticket.id} ticket={ticket} />);
+        tickets.push(ticket);
+        tickets.sort(function(a, b) { return a.order > b.order; });
       }
+    }
+    // create cards array
+    var cards = [];
+    for (var i = 0; i < tickets.length; i++) {
+        let ticket = tickets[i];
+        cards.push(<Card key={ticket.id} ticket={ticket} />);
     }
     // add placeholder
     if (isOver) {
