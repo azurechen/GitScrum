@@ -23,7 +23,9 @@ class Board extends Component {
     ticket.status = to;
     ticket.order = order;
     this.fieldRefs[from].forceUpdate();
-    this.fieldRefs[to].forceUpdate();
+    if (from != to) {
+      this.fieldRefs[to].forceUpdate();
+    }
   }
 
   render() {
