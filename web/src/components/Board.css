@@ -1,0 +1,59 @@
+.Board {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #333;
+  padding: 0 16px;
+}
+
+.Board .name {
+  height: 28px;
+  line-height: 28px;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 17px;
+  color: #CCC;
+  padding: 16px 8px 0;
+}
+
+.Board .period {
+  height: 18px;
+  line-height: 18px;
+  text-align: left;
+  font-size: 14px;
+  color: #999;
+  padding: 0 8px 12px;
+  border-bottom: 1px solid #444;
+}
+
+.Board > .header {
+  padding-top: 8px;
+  margin-bottom: 2px;
+}
+
+.Board > .header > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.Board > .header > div > div {
+  height: 32px;
+  line-height: 32px;
+  flex: 1;
+  margin: 0 6px;
+  text-align: left;
+  font-weight: bolder;
+  color: white;
+  padding: 0 4px;
+}
+
+.Board > .content {
+  overflow: scroll;
+}
+
+.Board > .content > div {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding-bottom: 16px;
+}

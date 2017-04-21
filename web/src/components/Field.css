@@ -1,0 +1,6 @@
+.Field {
+  flex-direction: column;
+  flex: 1;
+  background-color: #EAEAEA;
+  margin: 0 6px;
+}

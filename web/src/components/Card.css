@@ -1,0 +1,79 @@
+.Card {
+  display: flex;
+  flex-direction: row;
+  height: 86px;
+  background-color: #FFF;
+  border-left: 6px solid transparent;
+  border-bottom: 1px solid #E1E1E1;
+  padding: 8px 8px 8px 12px;
+  overflow: hidden;
+  margin-left: 1px;
+}
+
+.Card > .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.Card > .content > .number {
+  color: #39C;
+}
+
+.Card > .content > .summary {
+  flex: 1;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.Card > .info {
+  position: relative;
+  margin-left: 12px;
+  /*width: 60px;*/
+}
+
+.Card > .info > .assignee {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  overflow: hidden;
+}
+
+.Card > .info > .assignee > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  font-size: 18px;
+  color: #444;
+  background-color: #E7E7E7;
+  border-radius: 4px;
+}
+
+.Card > .info > .assignee > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.Card > .info > .estimate {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 12px;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #444;
+  padding: 4px 8px;
+  background-color: #DDD;
+  border-radius: 14px;
+}

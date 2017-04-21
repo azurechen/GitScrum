@@ -1,11 +1,12 @@
 {
 	"a1b2c3d4e5f6": {
 		"id": 101,
-		"type": "Task",
+		"type": 1,
+		"status": 0,
 		"summary": "Create a new iOS project.",
 		"description": "",
 		"reporter": "azure517981@gmail.com",
-		"assignee": ["azure517981@gmail.com"],
+		"assignee": "azure517981@gmail.com",
 		"priority": 5,
 		"created": 1489476550,
 		"updated": 1489476551,
